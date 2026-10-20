@@ -1,0 +1,591 @@
+import 'package:flutter/material.dart';
+
+void main(){
+runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+const MyApp({super.key});
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+debugShowCheckedModeBanner: false,
+title: "My First App",
+theme: ThemeData(colorScheme: ColorScheme.light()),
+home: HomeScreen(),
+);
+}
+}
+class HomeScreen extends StatelessWidget {
+const HomeScreen({super.key});
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+// Let the background image go behind the app bar
+extendBodyBehindAppBar: true,
+appBar: AppBar(
+backgroundColor: Colors.transparent,
+elevation: 0,
+foregroundColor: Colors.white,
+title: Row(
+children: [
+ClipOval(
+child: Image.asset(
+"assets/images/logo.png",
+width: 36,
+height: 36,
+fit: BoxFit.cover,
+),
+),
+SizedBox(width: 12),
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+
+Text("DCIT26", style: TextStyle(fontSize: 16)),
+],
+),
+),
+body: Container(
+width: double.infinity,
+height: double.infinity,
+// Background image with a dark overlay
+decoration: BoxDecoration(
+image: DecorationImage(
+image: AssetImage("assets/images/bakground.jpg"),
+fit: BoxFit.cover,
+colorFilter: ColorFilter.mode(
+Colors.black.withOpacity(0.6),
+BlendMode.darken,
+),
+),
+),
+child: SingleChildScrollView(
+child: Column(
+children: [
+SizedBox(height: 100), // space for the app bar
+// Search bar
+Padding(
+padding: EdgeInsets.symmetric(horizontal: 30),
+child: TextField(
+decoration: InputDecoration(
+hintText: "Search here",
+filled: true,
+fillColor: Color(0xFFEEEEEE),
+contentPadding:
+EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+border: OutlineInputBorder(
+borderRadius: BorderRadius.circular(30),
+borderSide: BorderSide.none,
+),
+),
+),
+),
+SizedBox(height: 50),
+// ---------- Coffee 1 (text left, image right) ----------
+Row(
+children: [
+Expanded(
+child: Padding(
+padding: EdgeInsets.only(left: 40, right: 16),
+child: Column(
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Text(
+"Coffee 1",
+style: TextStyle(
+fontSize: 16,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 6),
+Text(
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Nullam quis varius odio.",
+
+style: TextStyle(
+fontSize: 13,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 8),
+ElevatedButton(
+onPressed: () => print("Coffee 1 Buy Now"),
+style: ElevatedButton.styleFrom(
+backgroundColor: Color(0xFFE0E0E0),
+foregroundColor: Colors.black,
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(8),
+),
+),
+child: Text("Buy Now"),
+),
+],
+),
+),
+),
+ClipRRect(
+borderRadius: BorderRadius.only(
+topLeft: Radius.circular(20),
+bottomLeft: Radius.circular(20),
+),
+child: Image.asset(
+"assets/images/coffee.jpg",
+width: 160,
+height: 150,
+fit: BoxFit.cover,
+),
+),
+],
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+
+),
+SizedBox(height: 40),
+// ---------- Coffee 2 (image left, text right) ----------
+Row(
+children: [
+ClipRRect(
+borderRadius: BorderRadius.only(
+topRight: Radius.circular(20),
+bottomRight: Radius.circular(20),
+),
+child: Image.asset(
+"assets/images/coffee.jpg",
+width: 160,
+height: 150,
+fit: BoxFit.cover,
+),
+),
+Expanded(
+child: Padding(
+padding: EdgeInsets.symmetric(horizontal: 30),
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Text(
+"Coffee 2",
+style: TextStyle(
+fontSize: 16,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 6),
+Text(
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Nullam quis varius odio.",
+
+style: TextStyle(
+fontSize: 13,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 8),
+ElevatedButton(
+onPressed: () => print("Coffee 2 Buy Now"),
+style: ElevatedButton.styleFrom(
+backgroundColor: Color(0xFFE0E0E0),
+foregroundColor: Colors.black,
+shape: RoundedRectangleBorder(
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+
+borderRadius: BorderRadius.circular(8),
+),
+),
+child: Text("Buy Now"),
+),
+],
+),
+),
+),
+],
+),
+SizedBox(height: 40),
+// ---------- Coffee 3 (text left, image right) ----------
+Row(
+children: [
+Expanded(
+child: Padding(
+padding: EdgeInsets.only(left: 40, right: 16),
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Text(
+"Coffee 3",
+style: TextStyle(
+fontSize: 16,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 6),
+Text(
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+Nullam quis varius odio.",
+
+style: TextStyle(
+fontSize: 13,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 8),
+ElevatedButton(
+onPressed: () => print("Coffee 3 Buy Now"),
+style: ElevatedButton.styleFrom(
+backgroundColor: Color(0xFFE0E0E0),
+foregroundColor: Colors.black,
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(8),
+),
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+),
+child: Text("Buy Now"),
+),
+],
+),
+),
+),
+ClipRRect(
+borderRadius: BorderRadius.only(
+topLeft: Radius.circular(20),
+bottomLeft: Radius.circular(20),
+),
+child: Image.asset(
+"assets/images/coffee.jpg",
+width: 160,
+height: 150,
+fit: BoxFit.cover,
+),
+),
+],
+),
+SizedBox(height: 40),
+],
+),
+),
+),
+bottomNavigationBar: BottomNavigationBar(
+type: BottomNavigationBarType.fixed,
+backgroundColor: Colors.white,
+currentIndex: 1,
+selectedItemCoimport 'package:flutter/material.dart';
+
+void main(){
+runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+const MyApp({super.key});
+@override
+Widget build(BuildContext context) {
+return MaterialApp(
+debugShowCheckedModeBanner: false,
+title: "My First App",
+theme: ThemeData(colorScheme: ColorScheme.light()),
+home: HomeScreen(),
+);
+}
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+}
+class HomeScreen extends StatelessWidget {
+const HomeScreen({super.key});
+// The coffee data (const is needed because HomeScreen has a const constructor)
+final List<Map<String, String>> coffees = const [
+{
+"name": "Coffee 1",
+"description":
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis varius
+
+odio.",
+"image": "assets/images/coffee.jpg",
+},
+{
+"name": "Coffee 2",
+"description":
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis varius
+
+odio.",
+"image": "assets/images/coffee.jpg",
+},
+{
+"name": "Coffee 3",
+"description":
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis varius
+
+odio.",
+"image": "assets/images/coffee.jpg",
+},
+];
+// One coffee row (image side depends on imageOnRight)
+Widget buildCoffeeItem(Map<String, String> coffee, bool imageOnRight) {
+Widget image = ClipRRect(
+borderRadius: imageOnRight
+? BorderRadius.only(
+topLeft: Radius.circular(20),
+bottomLeft: Radius.circular(20),
+)
+: BorderRadius.only(
+topRight: Radius.circular(20),
+bottomRight: Radius.circular(20),
+),
+child: Image.asset(
+coffee["image"]!,
+width: 160,
+height: 150,
+fit: BoxFit.cover,
+),
+);
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+Widget text = Expanded(
+child: Padding(
+padding: EdgeInsets.only(
+left: imageOnRight ? 40 : 30,
+right: imageOnRight ? 16 : 30,
+),
+child: Column(
+crossAxisAlignment: CrossAxisAlignment.start,
+children: [
+Text(
+coffee["name"]!,
+style: TextStyle(
+fontSize: 16,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 6),
+Text(
+coffee["description"]!,
+style: TextStyle(
+fontSize: 13,
+fontWeight: FontWeight.bold,
+color: Colors.white,
+),
+),
+SizedBox(height: 8),
+ElevatedButton(
+onPressed: () => print("${coffee["name"]} Buy Now"),
+style: ElevatedButton.styleFrom(
+backgroundColor: Color(0xFFE0E0E0),
+foregroundColor: Colors.black,
+shape: RoundedRectangleBorder(
+borderRadius: BorderRadius.circular(8),
+),
+),
+child: Text("Buy Now"),
+),
+],
+),
+),
+);
+return Row(
+children: imageOnRight ? [text, image] : [image, text],
+);
+}
+// Search bar + coffee list
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+Widget buildHomePage() {
+return SingleChildScrollView(
+child: Column(
+children: [
+SizedBox(height: 100), // space for the app bar
+// Search bar (not working yet)
+Padding(
+padding: EdgeInsets.symmetric(horizontal: 30),
+child: TextField(
+decoration: InputDecoration(
+hintText: "Search here",
+filled: true,
+fillColor: Color(0xFFEEEEEE),
+contentPadding:
+EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+border: OutlineInputBorder(
+borderRadius: BorderRadius.circular(30),
+borderSide: BorderSide.none,
+),
+),
+),
+),
+SizedBox(height: 50),
+// Show every coffee, alternating the image side
+for (int i = 0; i < coffees.length; i++) ...[
+buildCoffeeItem(coffees[i], i % 2 == 0),
+SizedBox(height: 40),
+],
+],
+),
+);
+}
+@override
+Widget build(BuildContext context) {
+return Scaffold(
+// Let the background image go behind the app bar
+extendBodyBehindAppBar: true,
+appBar: AppBar(
+backgroundColor: Colors.transparent,
+elevation: 0,
+foregroundColor: Colors.white,
+title: Row(
+children: [
+ClipOval(
+child: Image.asset(
+"assets/images/logo.png",
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+width: 36,
+height: 36,
+fit: BoxFit.cover,
+),
+),
+SizedBox(width: 12),
+Text("DCIT26", style: TextStyle(fontSize: 16)),
+],
+),
+),
+body: Container(
+width: double.infinity,
+height: double.infinity,
+// Background image with a dark overlay
+decoration: BoxDecoration(
+image: DecorationImage(
+image: AssetImage("assets/images/bakground.jpg"),
+fit: BoxFit.cover,
+colorFilter: ColorFilter.mode(
+Colors.black.withOpacity(0.6),
+BlendMode.darken,
+),
+),
+),
+child: buildHomePage(),
+),
+bottomNavigationBar: BottomNavigationBar(
+type: BottomNavigationBarType.fixed,
+backgroundColor: Colors.white,
+currentIndex: 0,
+selectedItemColor: Colors.orange,
+unselectedItemColor: Colors.black,
+iconSize: 28,
+showSelectedLabels: false,
+showUnselectedLabels: false,
+onTap: (index) => print("Tapped index $index"),
+items: const [
+BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorite"),
+BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Settings"),
+BottomNavigationBarItem(icon: Icon(Icons.share_outlined), label: "Share"),
+],
+),
+);
+}
+}
+lor: Colors.orange,
+unselectedItemColor: Colors.black,
+iconSize: 28,
+
+Republic of the Philippines
+CAVITE STATE UNIVERSITY
+Don Severino delas Alas Campus
+
+Indang, Cavite
+
+DCIT 26: Application Development and Emerging Technologies
+Laboratory Exercise 4: StateFulWidget
+Prepared by: John Aimiel C. Pena
+showSelectedLabels: false,
+showUnselectedLabels: false,
+onTap: (index) => print("Tapped index $index"),
+items: const [
+BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorite"),
+BottomNavigationBarItem(icon: Icon(Icons.settings_outlined), label: "Settings"),
+BottomNavigationBarItem(icon: Icon(Icons.share_outlined), label: "Share"),
+],
+),
+);
+}
+}
